@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aidan Sussman – Portfolio</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-Xh6VcRfQw6H5GdPyFvS9ZXi2wNKW5PoYvO0zpMN9CKuihD+zvbJV0SFr/J70cwgkEodC2fQUT5jv+4oFhE/BAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#home" class="logo">Aidan&nbsp;Sussman</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <header id="home" class="hero">
+    <div class="hero-content">
+      <h1>Mechanical &amp; Mechatronics Engineer</h1>
+      <p>Designing, building and controlling advanced robotic systems.</p>
+      <a href="Portfolio_AidanSussman.pdf" class="btn" download>Download Resume</a>
+    </div>
+  </header>
+
+  <!-- About section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>I’m a passionate mechanical and mechatronics engineer with a deep enthusiasm for designing, controlling and applying robotic systems in the real world. My studies at <strong>UC&nbsp;Berkeley</strong> (B.S. Mechanical Engineering, minor in EECS, May&nbsp;2024; M.S. Mechanical Engineering, May&nbsp;2025) and hands‑on experiences at Tesla, UC&nbsp;Berkeley labs and competition teams have shaped a broad skillset including CAD (SolidWorks, CATIA, Fusion&nbsp;360), FEA/FEM, control algorithms (PID, UKF, EKF, PF), embedded programming (C/C++, Python, ROS) and pneumatic/electro‑mechanical system integration. </p>
+      <p>Beyond formal coursework I’ve led and contributed to projects ranging from battlebots and flywheel‑stabilized bicycles to CNC plotters, autonomous rovers and signal‑processing algorithms. I thrive on rapid prototyping and iterative design, and I’m driven by the challenge of turning ambitious ideas into robust, manufacturable hardware.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">May&nbsp;2025</span>
+          <p>Master of Science, Mechanical Engineering, UC&nbsp;Berkeley (GPA 3.776)</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">May&nbsp;2024</span>
+          <p>Bachelor of Science, Mechanical Engineering (minor EECS), UC&nbsp;Berkeley (GPA 3.675, Regents’ &amp; Chancellor’s Scholar finalist, Dean’s List).</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Feb&nbsp;2025 – Present</span>
+          <p>STEM tutor at Bay Area Tutors covering physics, calculus, MATLAB and lower‑level math.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 2022 – Dec 2022</span>
+          <p>Equipment Engineering intern at Tesla, Fremont.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Fall 2021 – Spring 2022</span>
+          <p>Member of the UC Berkeley <em>RoboBears</em> combat robotics team; designed and built a 3&nbsp;lb battlebot.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 2021 – Dec 2022</span>
+          <p>Steering lead on the SuperMileage Vehicle team, designing the steering system for a competition vehicle.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Aug 2020 – May 2021</span>
+          <p>Undergraduate researcher studying exoplanet habitability at ULab.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Jun 2016 – Aug 2023</span>
+          <p>STEM instructor at ASTEME Learning Center, a nonprofit K‑8 STEM school and camp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="card-grid">
+        <!-- Project Card: Automated Pneumatic Tooling -->
+        <div class="card" onclick="openModal('pneumatic')">
+          <div class="card-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Automated Pneumatic Tooling</h3>
+          <p>Automated press to install coolant‑pump brackets at Tesla, eliminating bottlenecks through pneumatic logic and ergonomic safety.</p>
+        </div>
+        <!-- Project Card: RoboBears Combat Robot -->
+        <div class="card" onclick="openModal('robobears')">
+          <div class="card-icon"><i class="fas fa-robot"></i></div>
+          <h3>RoboBears Combat Robot</h3>
+          <p>Designed and built a 3 lb drum‑bot with dual‑drum weapon for 360° offense/defense.</p>
+        </div>
+        <!-- Project Card: Flywheel Bicycle Balancer -->
+        <div class="card" onclick="openModal('flywheel')">
+          <div class="card-icon"><i class="fas fa-bicycle"></i></div>
+          <h3>Flywheel Bicycle Balancer</h3>
+          <p>Gyroscopic module that allows a bicycle to self‑correct lean at low speeds using a flywheel and embedded control.</p>
+        </div>
+        <!-- Project Card: ChessBot -->
+        <div class="card" onclick="openModal('chessbot')">
+          <div class="card-icon"><i class="fas fa-chess-knight"></i></div>
+          <h3>ChessBot</h3>
+          <p>Sawyer robotic arm plays chess autonomously via perception, Stockfish and MoveIt motion planning.</p>
+        </div>
+        <!-- Project Card: CNC Pen Plotter -->
+        <div class="card" onclick="openModal('plotter')">
+          <div class="card-icon"><i class="fas fa-pen-nib"></i></div>
+          <h3>CNC Pen Plotter</h3>
+          <p>Custom XY‑gantry pen plotter with servo‑driven pen lifter, FluidNC firmware and Python GUI.</p>
+        </div>
+        <!-- Project Card: Ultrasonic Mapping Car -->
+        <div class="card" onclick="openModal('mappingcar')">
+          <div class="card-icon"><i class="fas fa-car"></i></div>
+          <h3>Ultrasonic Mapping Car</h3>
+          <p>ESP32‑powered rover for object detection and mapping using ultrasonic sensing and MQTT communication.</p>
+        </div>
+        <!-- Project Card: MATLAB Beam Analysis -->
+        <div class="card" onclick="openModal('beam')">
+          <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>MATLAB Beam Analysis</h3>
+          <p>Automated shear, moment and stress analysis for a beam, producing diagrams and sizing cross‑sections.</p>
+        </div>
+        <!-- Project Card: Manufacturing Design Project -->
+        <div class="card" onclick="openModal('manufacture')">
+          <div class="card-icon"><i class="fas fa-drafting-compass"></i></div>
+          <h3>Manufacturing Design</h3>
+          <p>Slide‑out side table with GD&amp;T tolerancing and prototyping processes.</p>
+        </div>
+        <!-- Project Card: Acoustic Positioning System -->
+        <div class="card" onclick="openModal('acoustic')">
+          <div class="card-icon"><i class="fas fa-microphone"></i></div>
+          <h3>Acoustic Positioning System</h3>
+          <p>Indoor GPS‑style system estimating microphone location from beacon tones via cross‑correlation and least squares.</p>
+        </div>
+        <!-- Project Card: Exoplanet Habitability Research -->
+        <div class="card" onclick="openModal('exoplanet')">
+          <div class="card-icon"><i class="fas fa-planet-ringed"></i></div>
+          <h3>Exoplanet Habitability</h3>
+          <p>Astrophysics research analyzing transit light curves to evaluate exoplanet habitability using Python.</p>
+        </div>
+        <!-- Project Card: ASTEME Pen Plotter Lesson -->
+        <div class="card" onclick="openModal('asteme')">
+          <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>ASTEME Pen Plotter Lesson</h3>
+          <p>Designed a K‑8 robotics lesson with a two‑joint pen‑plotter built from popsicle sticks and servo motors.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>If you’d like to discuss opportunities, collaborations or have any questions, feel free to reach out.</p>
+      <ul class="contact-list">
+        <li><i class="fas fa-envelope"></i> <a href="mailto:aidan.sussman@berkeley.edu">aidan.sussman@berkeley.edu</a></li>
+        <li><i class="fas fa-linkedin"></i> <a href="https://www.linkedin.com/in/aidan-sussman" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><i class="fas fa-file-pdf"></i> <a href="Portfolio_AidanSussman.pdf" download>Resume (PDF)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <!-- Modal Template for each project -->
+  <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div id="modal-content" class="modal-content">
+        <!-- Dynamic content inserted by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden project details (will be injected into modal) -->
+  <template id="pneumatic">
+    <h3>Automated Pneumatic Tooling – Tesla Equipment Engineering Internship</h3>
+    <p><strong>Project overview:</strong> Facilitated creation of a fully automated press to install coolant‑pump mounting brackets, replacing a manual choke point and improving cycle time on the Tesla assembly line.</p>
+    <p><strong>Mechanical design highlights:</strong> Designed a custom fixture that matched bracket and pump profiles for positive seating and 3D printed it in durable resin. Built an extrusion‑rail frame with a linear‑guide sliding tray for part loading/unloading. Added a tailored pressing foot with an integrated indicator for seating verification.</p>
+    <p><strong>Process workflow:</strong> Operators load parts into the fixture and engage dual safety buttons. The tray retracts into a semi‑enclosed chamber where a pneumatic piston press‑fits the bracket. Upon seating confirmation, releasing the buttons reverses the sequence.</p>
+    <p><strong>Pneumatic logic:</strong> Implemented a purely pneumatic logic system: dual buttons act as an AND gate enabling tray actuation; an end‑of‑travel switch activates the pressing piston via a 5/2 valve. Sequencing is achieved using 5/2 and 3/2 directional valves and pilot lines with regulated air at 60–80 psi.</p>
+    <p><strong>Safety &amp; ergonomics:</strong> Integrated pinch‑point guards, full acrylic panels, color‑coded warning labels and two‑hand operation for safety.</p>
+    <p><strong>Outcomes &amp; scalability:</strong> Reduced cycle time below takt, eliminating the previous bottleneck. Machine footprint accommodates two fixtures in parallel; the maintenance guide outlines how to scale multiple units from a single air‑logic bank.</p>
+  </template>
+
+  <template id="robobears">
+    <h3>RoboBears Combat Robot</h3>
+    <p><strong>Overview:</strong> Designed, sourced and built a 3 lb battlebot with an active drum weapon to disable competitors while minimizing incoming damage.</p>
+    <p><strong>Initial design process:</strong> Conducted a design‑matrix analysis of past combat‑robot competitions, prioritizing high maneuverability, invertibility, stability and damage. Selected a drum‑bot architecture with a slanted flipper for improved contact and bite.</p>
+    <p><strong>Modifications:</strong> To overcome poor defense of a traditional front‑facing drum, devised a weapon system with two drum segments at a 120° angle, enabling side attacks and 360° defense. Initial single‑motor designs suffered belt slippage; switching to dual motors improved reliability despite a slight reduction in per‑hit force.</p>
+    <p><strong>Final design and manufacturability:</strong> Fabricated a laser‑cut 6061‑aluminum chassis with pocket patterns for stiffness‑to‑weight optimization and welded assembly. Waterjet‑cut A2‑steel drum sections were welded to a live shaft and constrained with nylon springs. The drive train used two direct‑drive 750 RPM planetary gear motors and a front ball caster for invertibility; low‑friction tape on the caster bolt enabled self‑righting.</p>
+    <p><strong>Contributions &amp; takeaways:</strong> Utilized SolidWorks and FEA tools to optimize the design, performed abstracted simulations of drum impacts to set load cases, sourced all components and prepared a detailed bill of materials and manufacturing plan.</p>
+  </template>
+
+  <template id="flywheel">
+    <h3>Flywheel Bicycle Balancer – Mechatronics Design Capstone (ME102)</h3>
+    <p><strong>Project overview:</strong> Conceived a flywheel‑based add‑on module that lets bicycles self‑correct lean at low speeds via a gyroscopic assist.</p>
+    <p><strong>Core concept &amp; architecture:</strong> An inverted‑pendulum flywheel stores angular momentum; a brushless DC motor repositions the flywheel to deliver counter‑torque and re‑center the bicycle. A magnetic encoder measures lean angle, while an ESP32 computes corrective action and drives the motor through a VESC controller.</p>
+    <p><strong>Key design decisions:</strong> Selected a high‑power‑density brushless motor (Scorpion SII‑4035‑450 KV). Designed a steel flywheel using a Lagrangian energy model to provide stabilizing torque while keeping weight manageable. Chose a Maytech 100 A VESC, optical quadrature encoder and balanced flywheel weights.</p>
+    <p><strong>Embedded control &amp; software:</strong> Implemented firmware on the ESP32 in C++/Arduino with state‑variable current control; tuned PID‑like gains via bench testing. A state machine governs startup, balancing and fault shutdown. Modular encoder and IMU drivers enable future upgrades.</p>
+    <p><strong>Accomplishments:</strong> Demonstrated live low‑speed balance correction counteracting gusts, uneven terrain and rider shifts. Fabricated, wired and programmed a functional prototype within six weeks, culminating in a successful showcase.</p>
+    <p><strong>Challenges &amp; lessons:</strong> Encountered latency and control saturation in the VESC; higher‑resolution sensors and refined control schemes would further improve response.</p>
+  </template>
+
+  <template id="chessbot">
+    <h3>ChessBot – EECS SawyerBot Lab</h3>
+    <p><strong>Project goal:</strong> Programmed the Sawyer robotic arm to play chess against a human opponent by detecting the human’s moves, computing a response via Stockfish and executing it autonomously.</p>
+    <p><strong>Physical design:</strong> 3D‑printed uniform chess pieces for reliable gripping and placed AR markers on the board and clock to enable camera‑based pose estimation.</p>
+    <p><strong>Perception:</strong> Used ROS’s <code>ar_track_alvar</code> node to detect AR tags and compute the board’s pose. Mapped board squares into the Sawyer workspace for precise targeting.</p>
+    <p><strong>Game logic:</strong> A ROS node maintained the chess state. After each human move, a custom ROS service called the Stockfish engine to plan the robot’s response.</p>
+    <p><strong>Motion planning &amp; control:</strong> Converted piece‑and‑square commands into joint trajectories using ROS MoveIt and an inverse‑kinematics solver. Executed trajectories with a custom‑tuned PID controller for smooth placement.</p>
+    <p><strong>Results:</strong> Sawyer autonomously plays full games, moving its chosen pieces accurately and demonstrating seamless integration of perception, planning and control.</p>
+  </template>
+
+  <template id="plotter">
+    <h3>CNC Pen Plotter – Microprocessor‑Based Systems</h3>
+    <p><strong>Project overview:</strong> Developed a CNC pen plotter that translates digital drawings into precise disconnected line art, with a custom pen‑retraction mechanism for rapid tool lifts.</p>
+    <p><strong>Mechanical design highlights:</strong> Constructed an open‑frame XY gantry using extrusion rails driven by dual stepper motors and DRV8825 microstepping. Added limit‑switch homing and drag‑chain cable management. Employed compact 3D‑printed brackets and datum features for repeatable assembly.</p>
+    <p><strong>Pen lifter mechanism:</strong> Designed a servo‑driven slider converting rotary motion into vertical pen lift via a linkage. Idle servo torque and pen compression eliminated the need for a return spring. Adjustable mounting bracket with chamfered pegs, datum holes and threaded inserts ensured alignment; a limit‑switch stopper enforced consistent travel.</p>
+    <p><strong>Hardware &amp; integration:</strong> Utilized an ESP32 control board running FluidNC firmware and DRV8825 drivers. The pen lifter mounts on the Z‑axis carriage while the X/Y axes are driven by GT2 belts and T‑slot sliders.</p>
+    <p><strong>Software &amp; firmware:</strong> Programmed FluidNC for motion control and built a Python/Tkinter GUI for G‑code generation, real‑time plotting and low‑level commands such as E‑stop, home and reset.</p>
+    <p><strong>Outcomes:</strong> Achieved clean, disconnected strokes on both whiteboard and paper. Tool‑swap snap‑fit posts support multiple pen sizes, laying the foundation for a future automatic tool changer. Real‑time feedback via MQTT ensures synchronous drawing.</p>
+  </template>
+
+  <template id="mappingcar">
+    <h3>Ultrasonic Mapping Car – Electronics for IoT</h3>
+    <p><strong>Objective:</strong> Designed and built a small‑scale rover combining object detection, obstacle avoidance and environmental mapping to demonstrate core IoT robotics principles.</p>
+    <p><strong>Core hardware:</strong> ESP32 microcontroller running MicroPython; two 9 V DC motors driven by a custom NPN‑BJT H‑bridge with flyback diodes; wheel encoders for odometry; HC‑SR04 ultrasonic sensor for distance measurement; 9 V battery with on‑board 5 V regulator and logic‑level shifting.</p>
+    <p><strong>Software &amp; communications:</strong> Implemented PWM‑based motor speed control with encoder‑interrupt feedback. Used MQTT for drive, turn and scan commands as well as sensor‑data output. Hosted a Python polar‑plot visualization and used MQTT Explorer for debugging.</p>
+    <p><strong>Key functions:</strong> <em>Drive</em> moves a set distance via encoder‑pulse counting; <em>Turn</em> performs single‑wheel rotation for heading control; <em>Scan</em> executes a 360° spin sampling ultrasonic ranges and streams points for live mapping.</p>
+    <p><strong>Challenges &amp; solutions:</strong> Resolved voltage‑level issues with a regulator/divider network. Mitigated coarse encoder resolution (~5°/pulse) by time‑based sampling during scans. Replaced ThingSpeak with direct MQTT communication to eliminate latency.</p>
+    <p><strong>Outcomes:</strong> Achieved reliable remote control and real‑time obstacle visualization. The modular IoT architecture is scalable to search‑and‑rescue or inspection robots and enhanced skills in embedded coding, sensor fusion, motor control and data pipelines.</p>
+  </template>
+
+  <template id="beam">
+    <h3>MATLAB Beam‑Analysis Project – Solid Mechanics (MEC85)</h3>
+    <p><strong>Goal:</strong> Automate shear, moment and stress analysis of a simply supported beam under a point load <em>F</em>=100 N and a uniformly distributed load <em>w</em>=10 N/cm, then size a circular cross‑section such that the maximum principal stress remains below 270 MPa.</p>
+    <p><strong>Major deliverables:</strong> Hand‑derived shear‑force and bending‑moment diagrams for validation. Four MATLAB scripts: <code>vmd.m</code> computes <em>V(x)</em> and <em>M(x)</em>; <code>stress.m</code> evaluates shear, bending and principal stresses for a given diameter; <code>caseEqual.m</code> implements a bisection algorithm to find the minimum diameter when <em>l₁</em>=<em>l₂</em>; <code>caseGeneral.m</code> sweeps <em>l₁</em> from 2–10 cm to generate a design‑diameter envelope.</p>
+    <p><strong>Analytical &amp; computational workflow:</strong> Calculated support reactions via equilibrium and implemented closed‑form expressions for <em>V(x)</em> and <em>M(x)</em> sampled at 100 points in MATLAB. Constructed principal‑stress tensors using <em>σ</em>=<em>My/I</em> and <em>τ</em>=<em>VQ/It</em>, extracted maximum principal stress via eigenvalues and used bisection to size the diameter so <em>σ<sub>max</sub></em>≈270 MPa (±0.01 MPa).</p>
+    <p><strong>Plotting results:</strong> Generated diagrams of the beam problem setup, shear &amp; moment diagrams, the minimum diameter for <em>l₁</em>=<em>l₂</em> and a design‑diameter envelope. These automated plots aid engineers in quickly sizing beams for different load distributions.</p>
+  </template>
+
+  <template id="manufacture">
+    <h3>Manufacturing Design Project – Manufacturing Communication</h3>
+    <p><strong>Overview:</strong> Designed and prototyped a slide‑out side table device that clamps beneath a desk to expand workspace. Applied formal engineering drawings, manufacturing processes and geometric tolerancing to create full working drawings and a prototype.</p>
+    <p><strong>GD&amp;T highlights:</strong> Applied position tolerance of 1/32 in on offset wheel holes for consistent stopping; flatness tolerance of 1/64 in on tray edges for smooth sliding; and total runout on the wheel bore relative to the pin to maintain roundness under load.</p>
+    <p><strong>Fits &amp; tolerances:</strong> Implemented key fit classes such as RC7 (free running) for wheels &amp; rails, FN2 (press fit) for pin &amp; base, RC1 (tight clearance) for clamp screw &amp; frame and LN1 (transition fit) for clamp frame &amp; desk.</p>
+    <p><strong>Process selection &amp; materials:</strong> Prototyped clamps via FDM/SLA 3D printing (engineering resin for strength, PLA for wheels), MDF tray table and aluminum rails. In production, recommended metal screws and higher‑grade wood for durability.</p>
+    <p><strong>Reflection:</strong> Learned that precise tolerancing profoundly impacts function; clear labeling and orientation are critical during assembly. Prototyping underscored the adage “measure twice, cut once”.</p>
+  </template>
+
+  <template id="acoustic">
+    <h3>Acoustic Positioning System Lab – EECS 16A</h3>
+    <p><strong>Project goal:</strong> Built a GPS‑style indoor acoustic positioning system that estimates a microphone’s 2D location from beacon tones played by multiple loudspeakers.</p>
+    <p><strong>Core concepts applied:</strong> Employed cross‑correlation to isolate each beacon’s signal and measure its sample delay; converted delays to distances using the speed of sound; computed a position estimate via trilateration/multilateration using geometric circle intersections or least‑squares optimization.</p>
+    <p><strong>Implementation:</strong> Recorded composite audio from four speakers broadcasting orthogonal tones; computed cross‑correlation peaks to determine sample offsets; converted offsets to distances; solved the least‑squares system in Python; visualized estimated vs. ground‑truth locations and iterated to reduce error.</p>
+    <p><strong>Tools &amp; technologies:</strong> Python with JupyterLab and NumPy; standard PC microphone and desktop speakers.</p>
+    <p><strong>Skills demonstrated:</strong> Digital signal processing, linear‑algebra modeling, hardware/software integration troubleshooting and clear presentation of algorithms and results.</p>
+  </template>
+
+  <template id="exoplanet">
+    <h3>Exoplanet Habitability Research – ULab</h3>
+    <p><strong>Background:</strong> Used the transit method to analyze dips in starlight when an exoplanet passes in front of its host star. This approach allows estimation of orbital radius, transit period and planet size.</p>
+    <p><strong>Methodology:</strong> Selected a target exoplanet (HAT‑P‑12b) using MicroObservatory and collected 80–90 images during a transit event. Cleaned the brightness data in Python to produce light curves and highlight outliers, then employed polynomial fits to identify the transit.</p>
+    <p><strong>Analysis:</strong> Plotted relative brightness versus time, removed noisy images and created binned light curves. Calculated key characteristics such as planet radius, velocity and semi‑major axis. Compared these values to known habitable planets and found that HAT‑P‑12b is significantly larger and faster than Earth and resides outside its star’s habitable zone.</p>
+    <p><strong>Future work:</strong> Suggested using spectroscopy to determine atmospheric composition and investigating a larger sample of exoplanets, potentially incorporating habitability indices such as the Earth Similarity Index.</p>
+  </template>
+
+  <template id="asteme">
+    <h3>ASTEME Learning Center – Pen Plotter Lesson</h3>
+    <p><strong>About ASTEME:</strong> A non‑profit learning center focused on inspiring K‑8 students by showing how science and math are found all around us.</p>
+    <p><strong>Roles:</strong> As a STEM teacher, designed lesson plans on various topics, adapting them to different age groups, sourcing supplies, maintaining equipment (3D printers, laser cutters, VR devices, drones, chemical closets) and engaging students.</p>
+    <p><strong>Pen plotter activity:</strong> Created a robotics lesson for ASTEME’s summer program during the COVID‑19 pandemic. Students received kits containing popsicle‑stick arms, servo attachment pieces and clothespins to build a two‑joint pen‑plotting robot. Parts were chosen so they could be assembled easily at home.</p>
+    <p><strong>Bill of materials &amp; code:</strong> Fully sourced components and compiled a bill of materials. Programmed the pen plotter with parameterized equations for lines, shapes and letters; wrote a conversion function using the law of cosines to translate Cartesian coordinates into servo angles.</p>
+    <p><strong>Lesson plan:</strong> Broke the lesson into three parts: wiring &amp; electronics (covering electricity fundamentals, microprocessors and servo mechanics), robotic engineering (structural and materials engineering) and mathematics (demonstrating that two joints can reach any point on a plane by changing two angles).</p>
+  </template>
+
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
+</body>
+</html>
