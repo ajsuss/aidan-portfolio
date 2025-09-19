@@ -4,48 +4,49 @@
  * Implements responsive navigation and modal dialogues for project details.
  */
 
+// Set up handlers once the script loads. Since this file is loaded at the end of
+// the document, the DOM is already present and we can directly query elements
+// without waiting for a DOMContentLoaded event.
+
 // Mobile navigation toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+navToggle?.addEventListener('click', () => {
+  navLinks?.classList.toggle('show');
+});
 
-  navToggle?.addEventListener('click', () => {
-    navLinks?.classList.toggle('show');
+// Attach modal close listener to handle close button events
+const closeBtn = document.querySelector('.modal-close');
+if (closeBtn) {
+  closeBtn.addEventListener('click', () => {
+    closeModal();
   });
+}
 
-  // Attach modal close listener to handle close button events
-  const closeBtn = document.querySelector('.modal-close');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      closeModal();
+// Category filtering for project cards
+// Attach click listeners to each filter button to filter the project grid
+const filterButtons = document.querySelectorAll('.filter-button');
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    // Retrieve the selected filter from the button's data-filter attribute
+    const filter = button.getAttribute('data-filter');
+    // Remove the active class from all buttons and highlight the current one
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    // Query the cards on each click to ensure we have an up‑to‑date list
+    const cards = document.querySelectorAll('.card-grid .card');
+    cards.forEach(card => {
+      const categoryAttr = card.getAttribute('data-category') || '';
+      // Split categories on whitespace to support multiple categories
+      const categories = categoryAttr.split(/\s+/).filter(Boolean);
+      // If the "all" filter is selected or the card includes the category, show it; otherwise hide
+      if (filter === 'all' || categories.includes(filter)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
     });
-  }
-
-      // Category filtering for project cards
-      // Attach click listeners to each filter button to filter the project grid
-      const filterButtons = document.querySelectorAll('.filter-button');
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          // Retrieve the selected filter from the button's data-filter attribute
-          const filter = button.getAttribute('data-filter');
-          // Remove the active class from all buttons and highlight the current one
-          filterButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
-          // Query the cards on each click to ensure we have an up‑to‑date list
-          const cards = document.querySelectorAll('.card-grid .card');
-          cards.forEach(card => {
-            const categoryAttr = card.getAttribute('data-category') || '';
-            // Split categories on whitespace to support multiple categories
-            const categories = categoryAttr.split(/\s+/).filter(Boolean);
-            // If the "all" filter is selected or the card includes the category, show it; otherwise hide
-            if (filter === 'all' || categories.includes(filter)) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
+  });
 });
 
 // Open a modal with the given template ID
