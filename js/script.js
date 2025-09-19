@@ -20,6 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     });
   }
+
+  // Category filtering for project cards
+  const filterButtons = document.querySelectorAll('.filter-button');
+  const cards = document.querySelectorAll('.card-grid .card');
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      // Highlight the active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      // Show or hide cards based on category
+      cards.forEach(card => {
+        const categories = (card.getAttribute('data-category') || '').split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 });
 
 // Open a modal with the given template ID
