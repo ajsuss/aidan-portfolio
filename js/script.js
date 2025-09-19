@@ -49,6 +49,14 @@ filterButtons.forEach((button) => {
   });
 });
 
+// Prevent modals from opening when clicking on card links
+const cardLinks = document.querySelectorAll('.card-link');
+cardLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    // Stop the click event from bubbling up to the card's onClick handler
+    e.stopPropagation();
+  });
+});
 // Open a modal with the given template ID
 function openModal(templateId) {
   const overlay = document.getElementById('modal-overlay');
