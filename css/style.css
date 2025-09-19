@@ -240,6 +240,21 @@ p {
   font-size: 0.95rem;
 }
 
+/* Link shown at the bottom of each project card to navigate to the full project page */
+.card-link {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.card-link:hover {
+  text-decoration: underline;
+  color: var(--primary-dark, var(--primary));
+}
+
 /* Contact section */
 .contact-list {
   list-style: none;
@@ -281,6 +296,9 @@ p {
   position: relative;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   animation: slideIn 0.4s ease forwards;
+  /* Allow internal scrolling on tall modal content.  Using max-height prevents the button at the bottom from being clipped. */
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .modal-close {
   position: absolute;
