@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flywheel Bicycle Balancer – Aidan Sussman</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">Aidan&nbsp;Sussman</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Flywheel Bicycle Balancer</h1>
+      <p>Gyroscopic module that lets a bicycle self‑correct lean at low speeds.</p>
+    </div>
+  </header>
+  <main class="container project-page" style="padding-top:2rem;">
+    <h2>Project Overview</h2>
+    <p>This mechatronics capstone project explored using gyroscopic forces to stabilise a bicycle at low speeds. We conceived an add‑on flywheel module that produces counter‑torque to re‑center the bike when it begins to lean.</p>
+    <h2>Core Concept &amp; Architecture</h2>
+    <p>An inverted pendulum flywheel stores angular momentum. A high‑power brushless DC motor repositions the flywheel to deliver corrective torque. A magnetic encoder measures lean angle and an ESP32 microcontroller computes control commands sent through a VESC motor controller.</p>
+    <h2>Key Design Decisions</h2>
+    <p>We selected a Scorpion SII‑4035‑450 KV motor for its power density, designed a steel flywheel using a Lagrangian energy model to balance mass and moment of inertia, and chose a Maytech 100 A VESC paired with a high‑resolution magnetic encoder.</p>
+    <h2>Embedded Control &amp; Software</h2>
+    <p>Firmware written in C++/Arduino on the ESP32 implemented state‑variable current control and a state machine governing startup, balancing and fault shutdown. Modular encoder and IMU drivers enable future upgrades.</p>
+    <h2>Accomplishments &amp; Lessons</h2>
+    <p>The prototype demonstrated live low‑speed balance correction, counteracting gusts, uneven terrain and rider shifts. We fabricated, wired and programmed the system in six weeks. Future work includes addressing latency and control saturation in the VESC and exploring higher‑resolution sensors.</p>
+    <h2>Media &amp; Downloads</h2>
+    <p>CAD models, test videos and code will be available here soon.</p>
+  </main>
+  <footer class="footer" style="background-color:#f5f7fa;padding:2rem 0;margin-top:2rem;">
+    <div class="container">
+      <p>If you’d like to discuss this project or collaborate, please reach out at <a href="mailto:aidan.sussman@berkeley.edu">aidan.sussman@berkeley.edu</a>.</p>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

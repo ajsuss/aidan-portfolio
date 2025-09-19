@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultrasonic Mapping Car – Aidan Sussman</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">Aidan&nbsp;Sussman</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Ultrasonic Mapping Car</h1>
+      <p>ESP32‑powered rover for IoT mapping and object detection.</p>
+    </div>
+  </header>
+  <main class="container project-page" style="padding-top:2rem;">
+    <h2>Objective</h2>
+    <p>This project demonstrates core IoT robotics principles by designing and building a small‑scale rover that performs object detection, obstacle avoidance and environmental mapping using ultrasonic sensors.</p>
+    <h2>Core Hardware</h2>
+    <p>The rover is driven by two 9 V DC motors through a custom NPN‑BJT H‑bridge with flyback diodes. An ESP32 microcontroller running MicroPython coordinates wheel encoders for odometry, an HC‑SR04 ultrasonic sensor for distance measurement and a 9 V battery with a 5 V regulator and level shifting.</p>
+    <h2>Software &amp; Communications</h2>
+    <p>Motor speed is controlled via PWM and encoder‑interrupt feedback. MQTT is used for remote drive, turn and scan commands as well as sensor‑data output. A Python polar‑plot visualization and MQTT Explorer were used for debugging.</p>
+    <h2>Key Functions</h2>
+    <p>The <em>Drive</em> function moves a set distance via encoder‑pulse counting; <em>Turn</em> performs single‑wheel rotations for heading control; <em>Scan</em> executes a 360° spin sampling ultrasonic ranges and streams points for live mapping.</p>
+    <h2>Challenges &amp; Solutions</h2>
+    <p>Voltage‑level issues were resolved with a regulator/divider network. Coarse encoder resolution (~5°/pulse) was mitigated by time‑based sampling during scans. Replacing ThingSpeak with direct MQTT communication eliminated latency.</p>
+    <h2>Outcomes</h2>
+    <p>The rover achieved reliable remote control and real‑time obstacle visualisation. The modular IoT architecture is scalable to search‑and‑rescue or inspection robots and improved my skills in embedded coding, sensor fusion, motor control and data pipelines.</p>
+    <h2>Media &amp; Downloads</h2>
+    <p>Source code, schematics and demonstration videos will be made available here.</p>
+  </main>
+  <footer class="footer" style="background-color:#f5f7fa;padding:2rem 0;margin-top:2rem;">
+    <div class="container">
+      <p>If you’d like to discuss this project or collaborate, please reach out at <a href="mailto:aidan.sussman@berkeley.edu">aidan.sussman@berkeley.edu</a>.</p>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Voice‑Controlled Car – Aidan Sussman</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">Aidan&nbsp;Sussman</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Voice‑Controlled Car</h1>
+      <p>Battery‑powered miniature car that responds to spoken commands.</p>
+    </div>
+  </header>
+  <main class="container project-page" style="padding-top:2rem;">
+    <h2>Overview</h2>
+    <p>For the EECS 16B semester project, my team built an autonomous miniature car that responds to four spoken commands using on‑board machine learning and closed‑loop control.</p>
+    <h2>Hardware Labs</h2>
+    <p>We constructed analog filters, DAC/ADC interfaces and drive electronics. The car integrates dual DC motors with encoders, a microphone front‑end and an audio filter bank.</p>
+    <h2>Control &amp; Algorithms</h2>
+    <p>Motor dynamics were modelled via system identification. We implemented open‑loop and feedback control for straight‑line driving and designed a PCA/SVD‑based voice classifier for spoken commands.</p>
+    <h2>Integration &amp; Demo</h2>
+    <p>By combining the audio classifier, control algorithms and drive hardware, the car reliably executed commands: “drive far,” “drive close,” “turn left” and “turn right.”</p>
+    <h2>Media &amp; Downloads</h2>
+    <p>Schematics, code and demo videos will be posted here.</p>
+  </main>
+  <footer class="footer" style="background-color:#f5f7fa;padding:2rem 0;margin-top:2rem;">
+    <div class="container">
+      <p>If you’d like to discuss this project or collaborate, please reach out at <a href="mailto:aidan.sussman@berkeley.edu">aidan.sussman@berkeley.edu</a>.</p>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>

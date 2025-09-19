@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Mechanics Analysis – Aidan Sussman</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">Aidan&nbsp;Sussman</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Flight Mechanics Analysis</h1>
+      <p>Centre‑of‑gravity envelope analysis for an Embraer E195‑E2.</p>
+    </div>
+  </header>
+  <main class="container project-page" style="padding-top:2rem;">
+    <h2>Objective</h2>
+    <p>I calculated the forward and aft centre‑of‑gravity limits for an Embraer E195‑E2 across its operational weight range and Mach numbers to ensure trim and stability.</p>
+    <h2>Method</h2>
+    <p>CG limits were derived by varying tail incidence and wing‑body moment coefficients. Static stability and balance constraints were applied. MATLAB sweeps over CG and mass grids generated the envelope and visualised results.</p>
+    <h2>Results</h2>
+    <p>I identified the smallest CG range at Mach 0.74 and mapped the allowable envelope. Stability metrics such as pitching‑moment coefficient, pitch‑moment slope and angle of attack were explored. Tail‑volume adjustments were analysed to reduce high‑α regions.</p>
+    <h2>Skills</h2>
+    <p>This project applied flight‑mechanics theory, vectorised MATLAB computations and surface visualisations. It improved my workflow for analytical derivation, numerical validation and design optimisation.</p>
+    <h2>Media &amp; Downloads</h2>
+    <p>MATLAB scripts, data files and visualisations will be posted here.</p>
+  </main>
+  <footer class="footer" style="background-color:#f5f7fa;padding:2rem 0;margin-top:2rem;">
+    <div class="container">
+      <p>If you’d like to discuss this project or collaborate, please reach out at <a href="mailto:aidan.sussman@berkeley.edu">aidan.sussman@berkeley.edu</a>.</p>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>
