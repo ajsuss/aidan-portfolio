@@ -78,80 +78,166 @@
           <span class="timeline-date">Jun 2016 – Aug 2023</span>
           <p>STEM instructor at ASTEME Learning Center, a nonprofit K‑8 STEM school and camp.</p>
         </div>
+        <!-- Additional timeline entries -->
+        <div class="timeline-item">
+          <span class="timeline-date">Spring&nbsp;2023</span>
+          <p>Developed an Ultrasonic Mapping Car and conducted a thermal expansion laboratory experiment for hands‑on engineering coursework.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Fall&nbsp;2023</span>
+          <p>Completed the Mechatronics Design Capstone project (self‑stabilizing bicycle assist), built a ChessBot for EECS&nbsp;106A and implemented AI algorithms for Pacman in CS188.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Spring&nbsp;2024</span>
+          <p>Designed and built a CNC Pen Plotter for the Design of Microprocessor‑Based Mechanical Systems course.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Fall&nbsp;2024</span>
+          <p>Implemented a suite of Finite Element Method projects and analyzed aircraft center‑of‑gravity envelopes in graduate coursework.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Spring&nbsp;2025</span>
+          <p>Published a literature review on aerogel fibers for textile applications and completed advanced MATLAB projects in engineering aerodynamics; graduated with an M.S. in Mechanical Engineering.</p>
+        </div>
+        </div>
       </div>
-    </div>
   </section>
 
   <!-- Projects section -->
   <section id="projects" class="projects">
     <div class="container">
       <h2>Featured Projects</h2>
+      <!-- Filter buttons for categories -->
+      <div class="filter-buttons">
+        <button class="filter-button active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="robotics">Robotics &amp; Mechatronics</button>
+        <button class="filter-button" data-filter="software">Software &amp; Algorithms</button>
+        <button class="filter-button" data-filter="research">Research</button>
+        <button class="filter-button" data-filter="academic">Academic Projects</button>
+        <button class="filter-button" data-filter="education">Education</button>
+      </div>
+
       <div class="card-grid">
         <!-- Project Card: Automated Pneumatic Tooling -->
-        <div class="card" onclick="openModal('pneumatic')">
+        <div class="card" data-category="robotics" onclick="openModal('pneumatic')">
           <div class="card-icon"><i class="fas fa-cogs"></i></div>
           <h3>Automated Pneumatic Tooling</h3>
           <p>Automated press to install coolant‑pump brackets at Tesla, eliminating bottlenecks through pneumatic logic and ergonomic safety.</p>
         </div>
         <!-- Project Card: RoboBears Combat Robot -->
-        <div class="card" onclick="openModal('robobears')">
+        <div class="card" data-category="robotics" onclick="openModal('robobears')">
           <div class="card-icon"><i class="fas fa-robot"></i></div>
           <h3>RoboBears Combat Robot</h3>
           <p>Designed and built a 3 lb drum‑bot with dual‑drum weapon for 360° offense/defense.</p>
         </div>
         <!-- Project Card: Flywheel Bicycle Balancer -->
-        <div class="card" onclick="openModal('flywheel')">
+        <div class="card" data-category="robotics" onclick="openModal('flywheel')">
           <div class="card-icon"><i class="fas fa-bicycle"></i></div>
           <h3>Flywheel Bicycle Balancer</h3>
           <p>Gyroscopic module that allows a bicycle to self‑correct lean at low speeds using a flywheel and embedded control.</p>
         </div>
         <!-- Project Card: ChessBot -->
-        <div class="card" onclick="openModal('chessbot')">
+        <div class="card" data-category="robotics" onclick="openModal('chessbot')">
           <div class="card-icon"><i class="fas fa-chess-knight"></i></div>
           <h3>ChessBot</h3>
           <p>Sawyer robotic arm plays chess autonomously via perception, Stockfish and MoveIt motion planning.</p>
         </div>
         <!-- Project Card: CNC Pen Plotter -->
-        <div class="card" onclick="openModal('plotter')">
+        <div class="card" data-category="robotics academic" onclick="openModal('plotter')">
           <div class="card-icon"><i class="fas fa-pen-nib"></i></div>
           <h3>CNC Pen Plotter</h3>
           <p>Custom XY‑gantry pen plotter with servo‑driven pen lifter, FluidNC firmware and Python GUI.</p>
         </div>
         <!-- Project Card: Ultrasonic Mapping Car -->
-        <div class="card" onclick="openModal('mappingcar')">
+        <div class="card" data-category="robotics" onclick="openModal('mappingcar')">
           <div class="card-icon"><i class="fas fa-car"></i></div>
           <h3>Ultrasonic Mapping Car</h3>
           <p>ESP32‑powered rover for object detection and mapping using ultrasonic sensing and MQTT communication.</p>
         </div>
         <!-- Project Card: MATLAB Beam Analysis -->
-        <div class="card" onclick="openModal('beam')">
+        <div class="card" data-category="academic" onclick="openModal('beam')">
           <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
           <h3>MATLAB Beam Analysis</h3>
           <p>Automated shear, moment and stress analysis for a beam, producing diagrams and sizing cross‑sections.</p>
         </div>
         <!-- Project Card: Manufacturing Design Project -->
-        <div class="card" onclick="openModal('manufacture')">
+        <div class="card" data-category="academic" onclick="openModal('manufacture')">
           <div class="card-icon"><i class="fas fa-drafting-compass"></i></div>
           <h3>Manufacturing Design</h3>
           <p>Slide‑out side table with GD&amp;T tolerancing and prototyping processes.</p>
         </div>
         <!-- Project Card: Acoustic Positioning System -->
-        <div class="card" onclick="openModal('acoustic')">
+        <div class="card" data-category="academic" onclick="openModal('acoustic')">
           <div class="card-icon"><i class="fas fa-microphone"></i></div>
           <h3>Acoustic Positioning System</h3>
           <p>Indoor GPS‑style system estimating microphone location from beacon tones via cross‑correlation and least squares.</p>
         </div>
         <!-- Project Card: Exoplanet Habitability Research -->
-        <div class="card" onclick="openModal('exoplanet')">
+        <div class="card" data-category="research" onclick="openModal('exoplanet')">
           <div class="card-icon"><i class="fas fa-planet-ringed"></i></div>
           <h3>Exoplanet Habitability</h3>
           <p>Astrophysics research analyzing transit light curves to evaluate exoplanet habitability using Python.</p>
         </div>
         <!-- Project Card: ASTEME Pen Plotter Lesson -->
-        <div class="card" onclick="openModal('asteme')">
+        <div class="card" data-category="education" onclick="openModal('asteme')">
           <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
           <h3>ASTEME Pen Plotter Lesson</h3>
           <p>Designed a K‑8 robotics lesson with a two‑joint pen‑plotter built from popsicle sticks and servo motors.</p>
+        </div>
+
+        <!-- New Project Card: Voice‑Controlled Car -->
+        <div class="card" data-category="robotics" onclick="openModal('sixteen')">
+          <div class="card-icon"><i class="fas fa-car-side"></i></div>
+          <h3>Voice‑Controlled Car (S1XT33N)</h3>
+          <p>Autonomous miniature car that interprets spoken commands and executes precise driving and turning maneuvers.</p>
+        </div>
+        <!-- New Project Card: Imaging Lab -->
+        <div class="card" data-category="academic" onclick="openModal('imaging')">
+          <div class="card-icon"><i class="fas fa-camera-retro"></i></div>
+          <h3>Imaging Lab</h3>
+          <p>Single‑pixel imaging system using a light sensor and projector with linear‑algebra reconstruction techniques.</p>
+        </div>
+        <!-- New Project Card: Thermal Expansion Experiment -->
+        <div class="card" data-category="research academic" onclick="openModal('thermal')">
+          <div class="card-icon"><i class="fas fa-thermometer-half"></i></div>
+          <h3>Thermal Expansion Experiment</h3>
+          <p>Measured thermal‑expansion coefficients of metals using thermocouples, FLIR imaging and precise micrometry.</p>
+        </div>
+        <!-- New Project Card: Data Structures Projects -->
+        <div class="card" data-category="software" onclick="openModal('datastructures')">
+          <div class="card-icon"><i class="fas fa-database"></i></div>
+          <h3>Data Structures Projects</h3>
+          <p>Implemented classic CS61B projects like Blocks, Enigma, Ataxx and Gitlet to master Java and algorithm design.</p>
+        </div>
+        <!-- New Project Card: AI Projects -->
+        <div class="card" data-category="software" onclick="openModal('ai')">
+          <div class="card-icon"><i class="fas fa-brain"></i></div>
+          <h3>AI Projects (CS188)</h3>
+          <p>Developed search, multi‑agent, reinforcement learning, probabilistic inference and neural‑network algorithms for Pacman.</p>
+        </div>
+        <!-- New Project Card: Finite Element Method Projects -->
+        <div class="card" data-category="academic" onclick="openModal('fem')">
+          <div class="card-icon"><i class="fas fa-wave-square"></i></div>
+          <h3>FEM Projects</h3>
+          <p>Series of finite‑element simulations for boundary‑value problems, airfoil flows, waves and nonlinear Poisson equations.</p>
+        </div>
+        <!-- New Project Card: Flight Mechanics CG Analysis -->
+        <div class="card" data-category="academic" onclick="openModal('flight')">
+          <div class="card-icon"><i class="fas fa-plane-departure"></i></div>
+          <h3>Flight Mechanics Analysis</h3>
+          <p>Calculated centre‑of‑gravity envelope for a regional airliner across weight and speed ranges to ensure trim and stability.</p>
+        </div>
+        <!-- New Project Card: Aerogel Fiber Study -->
+        <div class="card" data-category="research" onclick="openModal('aerogel')">
+          <div class="card-icon"><i class="fas fa-spa"></i></div>
+          <h3>Aerogel Fiber Study</h3>
+          <p>Comparative literature review on aerogel fiber fabrication and drying techniques for insulating textiles.</p>
+        </div>
+        <!-- New Project Card: Aerodynamics MATLAB Projects -->
+        <div class="card" data-category="academic" onclick="openModal('aerodynamics')">
+          <div class="card-icon"><i class="fas fa-wind"></i></div>
+          <h3>Aerodynamics Projects</h3>
+          <p>Simulated vortex dynamics and implemented vortex‑panel methods in MATLAB to analyse aerodynamics phenomena.</p>
         </div>
       </div>
     </div>
@@ -282,6 +368,79 @@
     <p><strong>Pen plotter activity:</strong> Created a robotics lesson for ASTEME’s summer program during the COVID‑19 pandemic. Students received kits containing popsicle‑stick arms, servo attachment pieces and clothespins to build a two‑joint pen‑plotting robot. Parts were chosen so they could be assembled easily at home.</p>
     <p><strong>Bill of materials &amp; code:</strong> Fully sourced components and compiled a bill of materials. Programmed the pen plotter with parameterized equations for lines, shapes and letters; wrote a conversion function using the law of cosines to translate Cartesian coordinates into servo angles.</p>
     <p><strong>Lesson plan:</strong> Broke the lesson into three parts: wiring &amp; electronics (covering electricity fundamentals, microprocessors and servo mechanics), robotic engineering (structural and materials engineering) and mathematics (demonstrating that two joints can reach any point on a plane by changing two angles).</p>
+  </template>
+
+  <!-- Additional project templates -->
+  <template id="sixteen">
+    <h3>Voice‑Controlled Car – EECS 16B Semester Project</h3>
+    <p><strong>Overview:</strong> Built a fully autonomous, battery‑powered miniature car that responds to four spoken commands using on‑board machine learning and closed‑loop control.</p>
+    <p><strong>Hardware labs:</strong> Constructed analog filters, DAC/ADC interfaces and drive electronics; integrated dual DC motors with encoders, a microphone front‑end and audio filter bank.</p>
+    <p><strong>Control &amp; algorithms:</strong> Modelled motor dynamics via system identification, implemented open‑loop and feedback control for straight‑line driving, and designed a PCA/SVD‑based voice classifier for commands.</p>
+    <p><strong>Integration &amp; demo:</strong> Combined the audio classifier, control algorithms and drive hardware to reliably execute commands: “drive far,” “drive close,” “turn left” and “turn right.”</p>
+  </template>
+
+  <template id="imaging">
+    <h3>Imaging Lab – EECS 16A</h3>
+    <p><strong>Objective:</strong> Built a single‑pixel imaging setup using a light sensor and projector to capture drawings and reconstruct them with linear‑algebra techniques.</p>
+    <p><strong>Implementation:</strong> Programmed Python/NumPy scripts to generate masking matrices, capture data and reconstruct images; aligned projector and sensor, and synchronised mask display with sampling.</p>
+    <p><strong>Results:</strong> Implemented single‑pixel scanning to reconstruct grayscale and RGB images; developed Hadamard multi‑pixel masks for higher SNR and analysed trade‑offs between resolution and noise.</p>
+    <p><strong>Lessons:</strong> Highlighted the importance of well‑conditioned measurement matrices and connected theoretical linear algebra concepts with practical imaging hardware.</p>
+  </template>
+
+  <template id="thermal">
+    <h3>Thermal Expansion Experiment – ME103</h3>
+    <p><strong>Goal:</strong> Measured linear and volumetric thermal‑expansion coefficients of 6061 aluminum, 110 brass and 464 copper using thermocouples and thermal imaging.</p>
+    <p><strong>Method:</strong> Submerged metal rods in temperature baths from 0–100 °C, recorded temperature with thermocouples and a FLIR camera, then measured length and diameter changes with a micrometer.</p>
+    <p><strong>Analysis:</strong> Computed ΔL/L vs. ΔT curves and performed linear regression to extract α; calculated the volumetric coefficient β from radial expansion; estimated uncertainties using sensor specifications.</p>
+    <p><strong>Outcome:</strong> Obtained coefficients within ~10% of handbook values; underscored the importance of emissivity control, rapid handling and instrument calibration to minimize systematic errors.</p>
+  </template>
+
+  <template id="datastructures">
+    <h3>Data Structures Projects – CS61B</h3>
+    <p><strong>Blocks:</strong> Developed a two‑player strategy game on an N×N grid featuring extend and jump moves with automatic captures; honed Java control flow and array manipulation.</p>
+    <p><strong>Enigma:</strong> Built a complete software simulator of the WWII Enigma machine, designing classes for rotors, reflectors, plugboard and encryption logic; implemented rotor stepping and reversible permutations.</p>
+    <p><strong>Ataxx:</strong> Implemented the board game Ataxx on a 7×7 grid with a computer opponent using depth‑limited minimax with alpha‑beta pruning and heuristic evaluation; integrated a GUI and undo functionality.</p>
+    <p><strong>Gitlet:</strong> Created a miniature Git‑style version control system supporting init, add, commit, branch, merge and log; used SHA‑1 hashes and efficient data structures to manage repository state.</p>
+  </template>
+
+  <template id="ai">
+    <h3>AI Projects – CS188 Introduction to Artificial Intelligence</h3>
+    <p><strong>Search algorithms:</strong> Designed path‑finding agents for Pacman using depth‑first, breadth‑first, uniform‑cost and A* search with custom heuristics for multi‑goal problems.</p>
+    <p><strong>Multi‑agent search:</strong> Extended search to adversarial settings with minimax, alpha‑beta pruning and expectimax algorithms; tuned evaluation functions for ghost avoidance and food collection.</p>
+    <p><strong>Reinforcement learning:</strong> Implemented value iteration, Q‑learning and approximate Q‑learning to teach agents optimal behaviour across grid worlds, robot crawlers and Pacman environments.</p>
+    <p><strong>Probabilistic inference:</strong> Built Bayes net and Hidden Markov Model trackers for the “Ghostbusters” project; implemented variable elimination, particle filtering and integrated belief updates.</p>
+    <p><strong>Machine learning:</strong> Developed perceptron classifiers, feed‑forward and recurrent neural networks for tasks like digit recognition and language identification; practiced hyper‑parameter tuning and training pipelines.</p>
+  </template>
+
+  <template id="fem">
+    <h3>Finite Element Method Projects</h3>
+    <p><strong>Scope:</strong> Completed a suite of FEM projects solving boundary value problems and dynamic equations using linear, quadratic and cubic elements, adaptive mesh refinement and Newton’s method.</p>
+    <p><strong>Highlights:</strong> Implemented analytical derivations and MATLAB code to solve 1D boundary‑value problems, second‑order ODEs with mixed boundary conditions, potential flow around a NACA 5012 airfoil, wave propagation with the θ‑method, and a nonlinear Poisson equation.</p>
+    <p><strong>Skills:</strong> Derived weak formulations, assembled global stiffness and mass matrices, enforced Dirichlet/Neumann/Kutta conditions, performed convergence studies and visualised results.</p>
+    <p><strong>Outcomes:</strong> Demonstrated accurate numerical solutions that converged to analytical benchmarks; produced error analyses, bar charts and animated wave simulations; deepened understanding of FEM theory and implementation.</p>
+  </template>
+
+  <template id="flight">
+    <h3>Flight Mechanics – Center‑of‑Gravity Envelope Analysis</h3>
+    <p><strong>Objective:</strong> Calculated the forward and aft centre‑of‑gravity limits for an Embraer E195‑E2 across its operational weight range and Mach numbers to ensure trim and stability.</p>
+    <p><strong>Method:</strong> Derived CG limits by varying tail incidence and wing‑body moment coefficients; applied static stability and balance constraints; performed MATLAB sweeps over CG and mass grids and visualised the results.</p>
+    <p><strong>Results:</strong> Identified the smallest CG range at Mach 0.74; mapped the allowable CG envelope and stability metrics (pitching‑moment coefficient, pitch‑moment slope, angle of attack); explored tail‑volume adjustments to reduce high‑α regions.</p>
+    <p><strong>Skills:</strong> Applied flight‑mechanics theory, implemented vectorised MATLAB computations and surface visualisations, and developed systematic workflows for analytical derivation, numerical validation and design optimisation.</p>
+  </template>
+
+  <template id="aerogel">
+    <h3>Aerogel Fiber for Textile Applications – Literature Study</h3>
+    <p><strong>Overview:</strong> Conducted a comprehensive literature review comparing aerogel fiber fabrication methods—wet spinning, electrospinning, wet coaxial spinning and freeze spinning—and drying techniques such as freeze drying, supercritical drying and ambient pressure drying to identify optimal approaches for flexible insulating textiles.</p>
+    <p><strong>Contribution:</strong> Authored and refined sections on spinning techniques and drying method evaluations; compiled and formatted the reference list; integrated team feedback to enhance clarity and coherence.</p>
+    <p><strong>Findings:</strong> Synthesised data on process scalability, mechanical performance, pore architecture and thermal conductivity; proposed a hybrid honeycomb‑reinforced laminate design to overcome aerogel fragility for large‑area textiles.</p>
+    <p><strong>Skills:</strong> Strengthened technical writing, literature synthesis and collaboration skills; mastered critical evaluation of advanced materials processing techniques.</p>
+  </template>
+
+  <template id="aerodynamics">
+    <h3>Engineering Aerodynamics MATLAB Projects</h3>
+    <p><strong>Point‑Vortex Dynamics:</strong> Developed a MATLAB solver to simulate interacting point vortices using a fourth‑order Runge–Kutta integrator; validated against test cases including translating vortex pairs, rotating vortex rings and wake roll‑up.</p>
+    <p><strong>Vortex‑Panel Method:</strong> Implemented a linearly varying vortex‑panel method to compute pressure distributions around a circular cylinder for non‑lifting and lifting cases with 32–128 panels; compared numerical C_p curves to analytical solutions and predicted separation points using Thwaites’ criterion.</p>
+    <p><strong>Skills &amp; Insights:</strong> Gained proficiency in inviscid vortex dynamics, ODE integration, aerodynamic theory and scientific visualisation; strengthened modular MATLAB programming and debugging of coupled ODE simulations.</p>
   </template>
 
   <!-- Scripts -->
