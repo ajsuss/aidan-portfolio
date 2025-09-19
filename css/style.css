@@ -181,6 +181,32 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
+
+/* Category filter buttons */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.filter-button.active,
+.filter-button:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
 .card {
   background-color: var(--white);
   border-radius: var(--border-radius);
