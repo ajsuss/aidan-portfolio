@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoboBears Combat Robot – Aidan Sussman</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="../index.html" class="logo">Aidan&nbsp;Sussman</a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>RoboBears Combat Robot</h1>
+      <p>3 lb drum‑bot with dual‑drum weapon for 360° offense/defense.</p>
+    </div>
+  </header>
+  <main class="container project-page" style="padding-top:2rem;">
+    <h2>Overview</h2>
+    <p>As part of Cal’s combat robotics team, I designed, sourced and built a 3 lb battlebot with an active drum weapon. The goal was to disable opponents while minimising incoming damage and ensuring invertibility and maneuverability.</p>
+    <h2>Initial Design Process</h2>
+    <p>I began with a design‑matrix analysis of past combat‑robot competitions, weighing criteria like agility, stability and offensive capability. This led to choosing a drum‑bot architecture with a slanted flipper to improve engagement and bite on the opponent.</p>
+    <h2>Modifications</h2>
+    <p>Early prototypes featuring a single drum revealed poor defense against side impacts and belt slippage. I addressed these issues by devising a weapon system with two drum segments placed 120° apart, enabling side attacks and full 360° defense. Switching from a single to dual motor drive improved reliability at the cost of some per‑hit energy.</p>
+    <h2>Final Design &amp; Manufacturability</h2>
+    <p>The chassis was laser‑cut from 6061‑T6 aluminum with pockets to optimise stiffness‑to‑weight. Waterjet‑cut A2‑steel drum sections were welded to a live shaft and constrained with nylon springs. The drive train used two direct‑drive planetary gear motors and a front ball caster for invertibility. Low‑friction tape on the caster bolt enabled self‑righting after flips.</p>
+    <h2>Contributions &amp; Takeaways</h2>
+    <p>I employed SolidWorks and FEA tools to optimise the design and performed abstracted simulations of drum impacts to set load cases. I also sourced components, prepared the bill of materials and developed a detailed manufacturing plan. Through this project I gained hands‑on experience with rapid prototyping, iterative design and competitive robot combat strategy.</p>
+    <!-- Media section: images, interactive CAD and video loops -->
+    <h2>Media &amp; Downloads</h2>
+
+    <!-- CAD image gallery -->
+    <h3>CAD Images</h3>
+    <p>Below are the key CAD renderings of the RoboBears combat robot. The first image shows the final isometric assembly, while the second illustrates the early prototype with interior components exposed.</p>
+    <div class="media-grid">
+      <div>
+        <img src="../images/robobears/robobears_full_cad.png" alt="Isometric CAD rendering of the completed RoboBears combat robot">
+        <p class="caption">Final CAD rendering of the RoboBears robot with dual drums and pocketed chassis.</p>
+      </div>
+      <div>
+        <img src="../images/robobears/robobears_interior_cad.png" alt="Early prototype CAD illustrating interior components and drum architecture">
+        <p class="caption">Early prototype showing internal layout and drum arrangement.</p>
+      </div>
+    </div>
+
+    <!-- Interactive 3D model embed from 3DContentCentral -->
+    <h3>Interactive CAD Model</h3>
+    <p>You can interact with the full 3D model of the RoboBears drum weapon system below. Use your mouse or touch to rotate, zoom and pan the model.</p>
+    <iframe src="https://www.3dcontentcentral.com/external-site-embed.aspx?format=3D&amp;catalogid=171&amp;modelid=1702558&amp;width=600&amp;height=480&amp;edraw=true" scrolling="no" frameborder="0" allowfullscreen></iframe>
+    <p class="caption"><a href="https://www.3dcontentcentral.com/external-site-embed.aspx?format=3D&amp;catalogid=171&amp;modelid=1702558&amp;width=600&amp;height=480&amp;edraw=true" target="_blank" rel="noopener">Open in a new tab</a></p>
+
+    <!-- Video loops (to be provided by user) -->
+    <h3>CAD Videos</h3>
+    <p>The videos below will showcase rotating views of the RoboBears CAD assembly when available. Please upload the video files (<code>robobears-loop1.mp4</code> and <code>robobears-loop2.mp4</code>) into the <code>videos</code> folder in the project repository. They will automatically appear on this page once added.</p>
+    <div class="media-grid">
+      <div>
+        <video src="../videos/robobears-loop1.mp4" controls autoplay muted loop>
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">CAD video loop #1 (360° rotation of the full assembly).</p>
+      </div>
+      <div>
+        <video src="../videos/robobears-loop2.mp4" controls autoplay muted loop>
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">CAD video loop #2 (cutaway view of the interior and drum mechanism).</p>
+      </div>
+    </div>
+  </main>
+  <footer class="footer" style="background-color:#f5f7fa;padding:2rem 0;margin-top:2rem;">
+    <div class="container">
+      <p>If you’d like to discuss this project or collaborate, please reach out at <a href="mailto:aidan.sussman@berkeley.edu">aidan.sussman@berkeley.edu</a>.</p>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
+</body>
+</html>
