@@ -43,8 +43,73 @@
     <p>Piece and square commands were converted into joint trajectories using ROS MoveIt and an inverse‑kinematics solver. A custom‑tuned PID controller executed trajectories smoothly and accurately.</p>
     <h2>Results</h2>
     <p>The Sawyer robot successfully played full games of chess autonomously, moving its chosen pieces accurately and demonstrating seamless integration of perception, planning and control.</p>
-    <h2>Media &amp; Downloads</h2>
-    <p>Design files, ROS packages and demonstration videos will be provided here.</p>
+    <!-- Media section showcasing images, diagrams and a demo video -->
+    <h2>Media</h2>
+    <p>Below you’ll find a selection of images, diagrams and a demonstration video that illustrate the ChessBot hardware, software architecture and control algorithms. Once you upload the actual photos to the repository’s <code>images/chessbot</code> folder (using the same filenames), they will automatically replace the placeholders shown here.</p>
+
+    <!-- System architecture diagram -->
+    <h3>System Architecture</h3>
+    <div class="media-grid">
+      <div>
+        <img src="../images/chessbot/architecture_diagram.png" alt="High‑level system architecture showing the perception module feeding into the main logic, which communicates with the chess engine and controller">
+        <p class="caption">High‑level software architecture: perception feeds into the main logic, which communicates with the chess engine and controller.</p>
+      </div>
+    </div>
+
+    <!-- Hardware photos -->
+    <h3>Hardware Setup</h3>
+    <div class="media-grid">
+      <div>
+        <img src="../images/chessbot/board_setup.png" alt="Chess board set up for the ChessBot with custom 3D printed pieces and calibration markers">
+        <p class="caption">Chess board set up with custom uniform pieces and calibration markers.</p>
+      </div>
+      <div>
+        <img src="../images/chessbot/sawyer_robot.png" alt="The Sawyer robot arm poised over the chessboard, equipped with a gripper for moving pieces">
+        <p class="caption">Sawyer robot arm equipped with a custom gripper, positioned over the playing board.</p>
+      </div>
+      <div>
+        <img src="../images/chessbot/gripper_design.png" alt="3D printed gripper used by the ChessBot to grasp chess pieces securely">
+        <p class="caption">3D‑printed gripper design used for reliable piece manipulation.</p>
+      </div>
+    </div>
+
+    <!-- Perception and calibration images -->
+    <h3>Vision &amp; Calibration</h3>
+    <div class="media-grid">
+      <div>
+        <img src="../images/chessbot/difference_vectors.png" alt="Image showing AprilTag markers on the board with x and y difference vectors used for calibration">
+        <p class="caption">AprilTag markers and difference vectors used to calibrate the board frame to the robot.</p>
+      </div>
+      <div>
+        <img src="../images/chessbot/aruco_markers_grid.png" alt="Grid of ArUco/AprilTag patterns used for robust board pose estimation">
+        <p class="caption">Grid of calibration tags used for accurate pose estimation.</p>
+      </div>
+    </div>
+
+    <!-- Chess engine and control diagrams -->
+    <h3>Chess Engine &amp; Control</h3>
+    <div class="media-grid">
+      <div>
+        <img src="../images/chessbot/stockfish_icon.png" alt="Illustration of a fish on a chess square symbolizing the Stockfish engine">
+        <p class="caption">The open‑source Stockfish engine computes the robot’s moves.</p>
+      </div>
+      <div>
+        <img src="../images/chessbot/pid_block_diagram.png" alt="Block diagram of a PID controller showing proportional, integral and derivative blocks feeding into a summation">
+        <p class="caption">PID control loop ensures smooth and precise execution of planned trajectories.</p>
+      </div>
+    </div>
+
+    <!-- Video demonstration -->
+    <h3>Video Demonstration</h3>
+    <p>A short demonstration video showcases the ChessBot playing a game against a human opponent. The video file <code>chessbot-demo.mp4</code> has been uploaded to the repository root; it is embedded below and will autoplay, loop and mute by default. If you prefer to host the file in a <code>videos</code> folder, update the <code>src</code> path accordingly.</p>
+    <div class="media-grid">
+      <div>
+        <video src="../chessbot-demo.mp4" controls autoplay muted loop>
+          Your browser does not support the video tag.
+        </video>
+        <p class="caption">ChessBot demo: the robot plays a game against a human opponent.</p>
+      </div>
+    </div>
   </main>
   <footer class="footer" style="background-color:#f5f7fa;padding:2rem 0;margin-top:2rem;">
     <div class="container">
