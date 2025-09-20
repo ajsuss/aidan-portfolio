@@ -80,3 +80,13 @@ function closeModal(event) {
   // Unlock body scroll when modal closed
   document.body.style.overflow = '';
 }
+
+// Open a card: only open modal if click is not on a link inside the card.
+function openCard(event, templateId) {
+  // If the click originated on or within an element with the .card-link class,
+  // allow default link navigation and do not open a modal.
+  if (event.target.closest('.card-link')) {
+    return;
+  }
+  openModal(templateId);
+}
