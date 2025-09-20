@@ -181,6 +181,32 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
 }
+
+/* Category filter buttons */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--primary);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.filter-button.active,
+.filter-button:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
 .card {
   background-color: var(--white);
   border-radius: var(--border-radius);
@@ -212,6 +238,21 @@ p {
   flex-grow: 1;
   color: var(--text-light);
   font-size: 0.95rem;
+}
+
+/* Link shown at the bottom of each project card to navigate to the full project page */
+.card-link {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.card-link:hover {
+  text-decoration: underline;
+  color: var(--primary-dark, var(--primary));
 }
 
 /* Contact section */
@@ -255,6 +296,9 @@ p {
   position: relative;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   animation: slideIn 0.4s ease forwards;
+  /* Allow internal scrolling on tall modal content.  Using max-height prevents the button at the bottom from being clipped. */
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .modal-close {
   position: absolute;
@@ -278,6 +322,53 @@ p {
 .modal-content p {
   margin-bottom: 0.75rem;
   color: var(--text-dark);
+}
+
+/* =============================================================================
+ * Project pages
+ *
+ * These rules style media elements and responsive grids on dedicated project
+ * pages. Images and videos should scale to the width of the container while
+ * maintaining their aspect ratio. A simple flexbox grid is provided for
+ * displaying multiple media items side‑by‑side on larger screens.
+ */
+
+/* Ensure images and video elements on project pages don’t overflow their
+   container and have consistent spacing */
+.project-page img,
+.project-page video {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+/* Style iframes (e.g. embedded 3D models) on project pages */
+.project-page iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+/* Flexbox grid for arranging multiple media items */
+.media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Each media item occupies approximately half of the available width on
+   wider screens. Adjust flex‑basis to change how many items per row. */
+.media-grid > * {
+  flex: 1 1 calc(50% - 1rem);
+}
+
+/* Caption styling for media descriptions on project pages */
+.project-page .caption {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
 }
 
 @keyframes slideIn {
