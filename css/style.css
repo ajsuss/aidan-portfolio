@@ -324,6 +324,53 @@ p {
   color: var(--text-dark);
 }
 
+/* =============================================================================
+ * Project pages
+ *
+ * These rules style media elements and responsive grids on dedicated project
+ * pages. Images and videos should scale to the width of the container while
+ * maintaining their aspect ratio. A simple flexbox grid is provided for
+ * displaying multiple media items side‑by‑side on larger screens.
+ */
+
+/* Ensure images and video elements on project pages don’t overflow their
+   container and have consistent spacing */
+.project-page img,
+.project-page video {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+/* Style iframes (e.g. embedded 3D models) on project pages */
+.project-page iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+/* Flexbox grid for arranging multiple media items */
+.media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Each media item occupies approximately half of the available width on
+   wider screens. Adjust flex‑basis to change how many items per row. */
+.media-grid > * {
+  flex: 1 1 calc(50% - 1rem);
+}
+
+/* Caption styling for media descriptions on project pages */
+.project-page .caption {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
 @keyframes slideIn {
   from {transform: translateY(30px); opacity: 0;}
   to {transform: translateY(0); opacity: 1;}
