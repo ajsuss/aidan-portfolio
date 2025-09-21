@@ -43,6 +43,82 @@
     <p>Piece and square commands were converted into joint trajectories using ROS MoveIt and an inverse‑kinematics solver. A custom‑tuned PID controller executed trajectories smoothly and accurately.</p>
     <h2>Results</h2>
     <p>The Sawyer robot successfully played full games of chess autonomously, moving its chosen pieces accurately and demonstrating seamless integration of perception, planning and control.</p>
+
+    <!-- Extended discussion of kinematics, motion planning and control used to build ChessBot -->
+    <h2>Forward Kinematics &amp; Coordinate Transformations</h2>
+    <p>Before teaching the robot to play chess we first had to understand its geometry.  We implemented a <em>forward kinematics</em> function for a seven–degree–of–freedom arm.  Following the product‑of‑exponentials approach we defined a zero configuration and identified the screw axes (<code>ω<sub>i</sub></code>) and points <code>q<sub>i</sub></code> for each joint.  The homogeneous transform from the base to the tool frame was expressed as</p>
+    <pre><code>def forward_kinematics(theta):
+    """Compute gst(θ) for a 7‑DOF arm using the product of exponentials"""
+    T = gst0  # transformation at zero configuration
+    for i in range(7):
+        w_i = omegas[i]          # joint axis ωᵢ
+        q_i = qs[i]              # point on the axis qᵢ
+        v_i = -np.cross(w_i, q_i) # linear velocity part
+        twist = np.r_[w_i, v_i]   # screw axis ξᵢ
+        T = T @ expm(skew(twist) * theta[i])
+    return T
+</code></pre>
+    <p>This computation returns a 4×4 homogeneous matrix <code>gst(θ)</code> giving the end–effector pose for a vector of joint angles as described in Lab 3【652523944139995†L107-L125】.  We verified our function against ROS’s built‑in tools by publishing joint state messages and comparing our output with <code>rosrun tf tf_echo base left_hand</code>【652523944139995†L246-L299】.  To monitor coordinate frames dynamically we wrote a <em>transform listener</em> node using the tf2 library:</p>
+    <pre><code>import rospy, tf2_ros
+from geometry_msgs.msg import TransformStamped
+
+tf_buffer = tf2_ros.Buffer()
+tf_listener = tf2_ros.TransformListener(tf_buffer)
+rate = rospy.Rate(10)
+while not rospy.is_shutdown():
+    try:
+        trans = tf_buffer.lookup_transform("base", "right_gripper_tip", rospy.Time())
+        print(trans.transform)
+    except (tf2_ros.LookupException, tf2_ros.ExtrapolationException):
+        continue
+    rate.sleep()</code></pre>
+    <p>This listener subscribes to tf topics and uses <code>tfBuffer.lookup_transform()</code> to return transforms between frames.  Catching <code>LookupException</code> and <code>ExtrapolationException</code> prevents our node from crashing【652523944139995†L246-L299】.</p>
+
+    <h2>Inverse Kinematics &amp; Pick‑and‑Place Planning</h2>
+    <p>To move a chess piece the robot must determine joint angles that place the gripper at a desired square.  Inverse kinematics (IK) solves this problem.  We used the Sawyer SDK’s Position Kinematics service and the MoveIt motion planner to request IK solutions.  A Python script prompts the user for a target position and constructs a <code>SolvePositionIKRequest</code> message containing a <code>PoseStamped</code> with the desired position and a simple quaternion orientation (0, 1, 0, 0) so the gripper points straight down【767309950160235†L90-L160】:</p>
+    <pre><code>from geometry_msgs.msg import PoseStamped
+from moveit_msgs.msg import RobotTrajectory
+from intera_core_msgs.srv import SolvePositionIK, SolvePositionIKRequest
+
+ik_service = rospy.ServiceProxy('/ExternalTools/right/PositionKinematicsNode/IKService',
+                               SolvePositionIK)
+req = SolvePositionIKRequest()
+hdr = Header(stamp=rospy.Time.now(), frame_id='base')
+pose = PoseStamped()
+pose.header = hdr
+pose.pose.position.x = 0.5
+pose.pose.position.y = 0.5
+pose.pose.position.z = 0.0
+pose.pose.orientation.x = 0.0
+pose.pose.orientation.y = 1.0
+pose.pose.orientation.z = 0.0
+pose.pose.orientation.w = 0.0
+req.pose_stamp.append(pose)
+res = ik_service(req)
+joint_angles = dict(zip(res.joints.name, res.joints.position))
+print(joint_angles)
+</code></pre>
+    <p>The solver returns a vector of joint angles that we then feed into our forward kinematics node to verify the pose, since IK may produce multiple solutions or fail if the pose is unreachable【767309950160235†L160-L178】.  For the ChessBot, we recorded pick‑and‑place transforms using <code>rosrun tf tf_echo base right_gripper_tip</code> and created a <code>move_arm</code> node that invokes MoveIt’s IK and trajectory planning to move between the recorded poses while opening and closing the gripper【767309950160235†L200-L274】.  Careful zero‑g positioning and use of ROS’s <code>intera_interface</code> library ensured safe operation of Sawyer’s hardware.</p>
+
+    <h2>Path Planning &amp; Feedback Control</h2>
+    <p>Computing IK positions is only part of the puzzle.  To move from one configuration to another without collisions or abrupt motion, we used MoveIt’s path planner.  The MoveIt GUI allowed us to set start and goal states by dragging the Sawyer end effector and compute smooth trajectories【286896348423214†L118-L144】.  For programmatic control, we interfaced with the <code>move_group</code> action server: an action client sends a goal containing the start state, goal state and optional constraints; the server returns a trajectory and publishes feedback as the arm moves【286896348423214†L152-L183】.  Below is a simplified example of sending a path planning request using the <code>moveit_commander</code> wrapper:</p>
+    <pre><code>from moveit_commander import MoveGroupCommander
+
+group = MoveGroupCommander('right_arm')
+group.set_pose_target([0.6, 0.2, 0.2, 0.0, 1.0, 0.0, 0.0])  # x,y,z,qx,qy,qz,qw
+plan = group.plan()
+group.execute(plan, wait=True)
+</code></pre>
+    <p>MoveIt can also accept orientation constraints and avoid obstacles by adding collision objects to the planning scene【286896348423214†L265-L304】.  For example, we created a box representing the table and a virtual wall in the robot’s workspace and observed how the planner adjusted trajectories to avoid them.  After planning, execution can be delegated to MoveIt’s built‑in controllers or replaced with a custom controller.</p>
+    <p>To study control strategies we implemented a feed‑forward velocity controller and then added proportional–derivative (PD) and proportional–integral–derivative (PID) feedback.  The controller receives a <code>moveit_msgs/RobotTrajectory</code> and updates the arm’s joint velocities according to</p>
+    <pre><code># Compute control torques for one timestep
+error = q_des - q
+d_error = (error - prev_error) / dt
+integral += error * dt
+u = u_ff + Kp * error + Kd * d_error + Ki * integral
+prev_error = error
+</code></pre>
+    <p>The proportional term drives the error towards zero, the derivative term damps oscillations and the integral term compensates for steady‑state errors【286896348423214†L330-L415】.  Implementing the PID controller improved ChessBot’s tracking accuracy compared to the open‑loop and PD controllers.  By combining motion planning with feedback control, the robot executed smooth, reliable trajectories even when disturbances and modeling errors were present.</p>
     <!-- Media section showcasing images, diagrams and a demo video -->
     <h2>Media</h2>
     <p>Below you’ll find a selection of images, diagrams and a demonstration video that illustrate the ChessBot hardware, software architecture and control algorithms. Once you upload the actual photos to the repository’s <code>images/chessbot</code> folder (using the same filenames), they will automatically replace the placeholders shown here.</p>
